@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b3343bdbc2e6c4fab28a7b9f408c82, type: 3}
   m_Name: CorridorParameters_no2
   m_EditorClassIdentifier: 
-  corridorLength: 31
+  corridorLength: 30
   corridorCount: 15
   roomPercent: 0.641
