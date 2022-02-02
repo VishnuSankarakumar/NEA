@@ -39,6 +39,7 @@ public class CorridorFirstDungeonGenerator : AbstractDungeonGenerator
     {
         foreach (var position in deadEnds)
         {
+            //this if statement is to make sure rooms arent created at positions where rooms have already been created
             if (roomFloors.Contains(position) == false)
             {
                 var room = RunRandomWalk(randomWalkParameters, position);
@@ -67,9 +68,9 @@ public class CorridorFirstDungeonGenerator : AbstractDungeonGenerator
     private HashSet<Vector2Int> CreateRooms(HashSet<Vector2Int> potentialRoomPositions, CorridorSO corridorParameters)
     {
         HashSet<Vector2Int> roomPositions = new HashSet<Vector2Int>();
-        int roomToCreateCount = Mathf.RoundToInt(potentialRoomPositions.Count * corridorParameters.roomPercent);
+        int roomsToCreateCount = Mathf.RoundToInt(potentialRoomPositions.Count * corridorParameters.roomPercent);
 
-        List<Vector2Int> roomsToCreate = potentialRoomPositions.OrderBy(x => Guid.NewGuid()).Take(roomToCreateCount).ToList();
+        List<Vector2Int> roomsToCreate = potentialRoomPositions.OrderBy(x => Guid.NewGuid()).Take(roomsToCreateCount).ToList();
 
         foreach (var roomPosition in roomsToCreate)
         {
@@ -86,10 +87,10 @@ public class CorridorFirstDungeonGenerator : AbstractDungeonGenerator
 
         for (int i = 0; i < corridorParameters.corridorCount; i++)
         {
-            var corridor = ProceduralGenerationAlgorithms.RandomWalkCorridor(currentPosition, corridorParameters.corridorLength);
-            currentPosition = corridor[corridor.Count - 1];
+            var path = ProceduralGenerationAlgorithms.RandomWalkCorridor(currentPosition, corridorParameters.corridorLength);
+            currentPosition = path[path.Count - 1];
             potentialRoomPositions.Add(currentPosition);
-            floorPositions.UnionWith(corridor);
+            floorPositions.UnionWith(path);
 
         }
     }

@@ -8,6 +8,9 @@ public abstract class AbstractDungeonGenerator : MonoBehaviour
     protected TileMapVisualizer tileMapVisualizer = null;
     [SerializeField]
     protected Vector2Int startPosition = Vector2Int.zero;
+    //public CorridorFirstDungeonGenerator RunGeneration;
+
+    //RunGeneration = GetComponent<CorridorFirstDungeonGeneration>();
 
     public void GenerateDungeon()
     {
