@@ -5,10 +5,10 @@ using UnityEngine.Tilemaps;
 
 public class TileMapVisualizer : MonoBehaviour
 {
+    //[SerializeField]
+    //private Tilemap tilemap;
     [SerializeField]
-    private Tilemap floorTilemap;
-    [SerializeField]
-    private Tilemap wallTilemap;
+    private Tilemap tilemap;
     [SerializeField]
     private TileBase floorTile;
     [SerializeField]
@@ -17,7 +17,7 @@ public class TileMapVisualizer : MonoBehaviour
     //Paint correct tiles onto identified positions
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
-        PaintTiles(floorPositions, floorTilemap, floorTile);
+        PaintTiles(floorPositions, tilemap, floorTile);
     }
 
     private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile)
@@ -30,7 +30,7 @@ public class TileMapVisualizer : MonoBehaviour
 
     internal void PaintSingleBasicWall(Vector2Int position)
     {
-        PaintSingleTile(wallTilemap, wallTop, position);
+        PaintSingleTile(tilemap, wallTop, position);
     }
 
     private void PaintSingleTile(Tilemap tilemap, TileBase tile, Vector2Int position)
@@ -42,7 +42,7 @@ public class TileMapVisualizer : MonoBehaviour
     //Clear tiles so that generated levels are unique and are not generated on itself
     public void Clear()
     {
-        floorTilemap.ClearAllTiles();
-        wallTilemap.ClearAllTiles();
+        tilemap.ClearAllTiles();
+        //tilemap.ClearAllTiles();
     }
 }
