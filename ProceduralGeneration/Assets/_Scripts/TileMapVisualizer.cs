@@ -5,44 +5,41 @@ using UnityEngine.Tilemaps;
 
 public class TileMapVisualizer : MonoBehaviour
 {
-    //[SerializeField]
-    //private Tilemap tilemap;
     [SerializeField]
     private Tilemap tilemap;
     [SerializeField]
     private TileBase floorTile;
     [SerializeField]
     private TileBase wallTop;
+    //All of these fields are serialized so that they can be edited directly in the Unity Editor
 
-    //Paint correct tiles onto identified positions
-    public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
+    public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions) //similar to the other procedures where this was done - this is the one public method used to call the other private methods in this class to enforce information hiding
     {
         PaintTiles(floorPositions, tilemap, floorTile);
     }
 
     private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile)
     {
-        foreach (var position in positions)
+        foreach (var position in positions) //paints a single tile at every position passed in
         {
             PaintSingleTile(tilemap, tile, position);
         }
     }
 
-    internal void PaintSingleBasicWall(Vector2Int position)
+    private void PaintSingleTile(Tilemap tilemap, TileBase tile, Vector2Int position) //paints a single floor tile at the position passed in as a parameter
     {
-        PaintSingleTile(tilemap, wallTop, position);
+        var tilePosition = tilemap.WorldToCell((Vector3Int)position); //worldtocell converts the three dimensional world position in the Unity scene to a 2D coordinate on the tilemap
+        tilemap.SetTile(tilePosition, tile); //this actually paints the tile
+    }
+    
+    internal void PaintSingleWall(Vector2Int position)
+    {
+        PaintSingleTile(tilemap, wallTop, position); //paints a wall at every wall position passed in
     }
 
-    private void PaintSingleTile(Tilemap tilemap, TileBase tile, Vector2Int position)
-    {
-        var tilePosition = tilemap.WorldToCell((Vector3Int)position);
-        tilemap.SetTile(tilePosition, tile);
-    }
-
-    //Clear tiles so that generated levels are unique and are not generated on itself
+    //Clear tiles so that generated levels are unique and are not generated previous versions of themselves
     public void Clear()
     {
         tilemap.ClearAllTiles();
-        //tilemap.ClearAllTiles();
     }
 }

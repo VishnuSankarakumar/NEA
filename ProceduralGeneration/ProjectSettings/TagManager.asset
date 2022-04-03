@@ -47,3 +47,9 @@ TagManager:
   - name: Wall
     uniqueID: 1881585455
     locked: 0
+  - name: PauseButton
+    uniqueID: 2594308727
+    locked: 0
+  - name: UI
+    uniqueID: 437604097
+    locked: 0
