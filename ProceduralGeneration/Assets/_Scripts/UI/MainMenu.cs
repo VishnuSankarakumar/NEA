@@ -6,7 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public GameObject settingsPanel;
-   
+
+    //public void GenerateMap() //only this procedure is public so that information hiding principles are maintained
+    //{
+    //    GenerateDungeon();
+    //}
+
     public void StartGame()
     {
         SceneManager.LoadScene("Gameplay");

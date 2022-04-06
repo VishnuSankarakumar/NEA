@@ -28,6 +28,7 @@ public static class WallGenerator //class will not be instantiated so it is decl
         foreach (var position in basicWallPositions) //after the walls are identified, a wall sprite is painted at every identified position
         {
             tileMapVisualizer.PaintSingleWall(position); //this is a function from the TileMapVisualizer script. it will paint a wall tile in every position that is passed into it
+            tileMapVisualizer.PaintTransparentWall(position);
         }
     }    
 }

@@ -2251,6 +2251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e206d8d32d721d44b36d4f8d9e3d456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileMapVisualizer: {fileID: 0}
+  startPosition: {x: 0, y: 0}
   settingsPanel: {fileID: 476792117}
 --- !u!1 &988736865
 GameObject:
@@ -3448,7 +3450,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1606552079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 978244483}
+        m_TargetAssemblyTypeName: AbstractClass, Assembly-CSharp
+        m_MethodName: GenerateDungeon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1606552079
 MonoBehaviour:
   m_ObjectHideFlags: 0
