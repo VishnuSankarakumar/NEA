@@ -19,7 +19,7 @@ public class CompleteDungeonGenerator : AbstractClass
     private void MapGeneration()
     {
         HashSet<Vector2Int> floorPositions = new HashSet<Vector2Int>(); 
-        HashSet<Vector2Int> potentialRoomPositions = new HashSet<Vector2Int>();
+        HashSet<Vector2Int> potentialRoomPositions  = new HashSet<Vector2Int>();
 
         CreateCorridors(floorPositions, potentialRoomPositions, CorridorParameters); //a network of corridors is created. no rooms exist at this point in the code, but potential room positions have been identified
         
