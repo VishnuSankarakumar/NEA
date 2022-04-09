@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 716889536652323597}
   - component: {fileID: 3150244167574100734}
   - component: {fileID: 3086602117829399889}
-  - component: {fileID: -6265213735499401177}
+  - component: {fileID: 8750087940886521730}
   m_Layer: 0
-  m_Name: TestBullet
+  m_Name: TestEnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -124,7 +124,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-6265213735499401177
+--- !u!114 &8750087940886521730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7259699945228839629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2054fcc76043a8441a50daab70e4342e, type: 3}
+  m_Script: {fileID: 11500000, guid: 203c78989879224468e8d8419b905f1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10

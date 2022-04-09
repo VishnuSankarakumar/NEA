@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CorridorParameters_no2
   m_EditorClassIdentifier: 
   corridorLength: 30
-  corridorCount: 15
-  roomPercent: 0.641
+  corridorCount: 1000
+  roomPercent: 0.665
