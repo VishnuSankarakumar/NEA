@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 100
+  heal: 0
 --- !u!114 &5805710092786445478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 7259699945228839629, guid: b18233a24a2cfcb4b8adef56957bd906, type: 3}
   player: {fileID: 0}
-  minDamage: 0
-  maxDamage: 0
+  minDamage: 5
+  maxDamage: 10
   projectileForce: 20
-  cooldown: 0.5
+  cooldown: 0.01

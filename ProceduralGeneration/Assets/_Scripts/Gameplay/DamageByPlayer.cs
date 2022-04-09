@@ -10,9 +10,9 @@ public class DamageByPlayer : MonoBehaviour
     {
         if (collision.name != "Player") //if block only executed if collision is not with the player itself
         {
-            if (collision.GetComponent<HealthManager>() != null) //checks that the object collided with has the HealthManager component
+            if (collision.GetComponent<EnemyHealthManager>() != null) //checks that the object collided with has the HealthManager component
             {
-                collision.GetComponent<HealthManager>().DealDamage(damage); //damage dealt
+                collision.GetComponent<EnemyHealthManager>().DealDamage(damage); //damage dealt
             }
             Destroy(gameObject); //projectile destroyed
         }

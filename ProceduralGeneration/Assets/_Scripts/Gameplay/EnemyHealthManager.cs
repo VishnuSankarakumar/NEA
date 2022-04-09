@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class EnemyHealthManager : MonoBehaviour
 {
     public float health;
-    public float maxHealth; //both variables need to be assigned through the editor
+    public float maxHealth;
+    public float heal; //all variables need to be assigned through the editor
+
+    
     void Start() //Start() is called before the first frame
     {
         health = maxHealth; //initialises health so that it is at max
@@ -16,6 +19,12 @@ public class HealthManager : MonoBehaviour
     {
         health -= damage; //damage deducted from health
         CheckDeath(); //method to check if health <= 0 is called
+    }
+
+    public void HealCharacter()
+    {
+        health += heal;
+        CheckOverHeal();
     }
 
     private void CheckDeath()
