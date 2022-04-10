@@ -11,7 +11,7 @@ public class PlayerProjectiles : MonoBehaviour
 
     private void Update() //called on every frame
     {
-        if (Input.GetMouseButtonDown(1)) //if the mouse button is pressed
+        if (Input.GetMouseButtonDown(0)) //if the mouse button is pressed
         {
             GameObject bullet = Instantiate(projectile, transform.position, Quaternion.identity); //bullet prefab is instantiated
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); //gets current coordinates of cursor

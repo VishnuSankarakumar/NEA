@@ -14,6 +14,7 @@ public class DamageByPlayer : MonoBehaviour
             {
                 collision.GetComponent<EnemyHealthManager>().DealDamage(damage); //damage dealt
             }
+            
             Destroy(gameObject); //projectile destroyed
         }
     }
