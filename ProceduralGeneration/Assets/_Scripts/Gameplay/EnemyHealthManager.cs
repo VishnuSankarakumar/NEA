@@ -25,7 +25,6 @@ public class EnemyHealthManager : MonoBehaviour
         health -= damage; //damage deducted from health
         CheckDeath(); //method to check if health <= 0 is called
         healthBarSlider.value = CalculateHealth();
-        Debug.Log("Enemy Health: " + healthBarSlider.value);
     }
 
     private float CalculateHealth()

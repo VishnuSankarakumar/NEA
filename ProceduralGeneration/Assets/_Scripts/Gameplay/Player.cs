@@ -48,15 +48,15 @@ public class Player : MonoBehaviour
         }
 
         hit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(move.x, 0), Mathf.Abs(move.x * Time.deltaTime), LayerMask.GetMask("Player", "Wall"));
-        if (hit.collider == null)
+        if (hit.collider == null) //checks movement is allowed in that direction
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)) //checks if the space bar is being pressed
             {
-                transform.Translate(100 * move.x * Time.deltaTime, 0, 0);
+                transform.Translate(100 * move.x * Time.deltaTime, 0, 0); //if yes the player is movement but with 100 times the speed 
             }
             else
             {
-                transform.Translate(15 * move.x * Time.deltaTime, 0, 0);
+                transform.Translate(15 * move.x * Time.deltaTime, 0, 0); //teh space bar is not being pressed so movement occurs as normal
             }
         }
 

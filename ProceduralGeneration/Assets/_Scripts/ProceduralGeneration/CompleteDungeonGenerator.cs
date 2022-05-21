@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq; //LINQ statements allow me to iterate through Hashsets temporarily. Importing System/Linq is easier than converting the entire Hashset to a List just for a single line.
 using UnityEngine;
-using Random = UnityEngine.Random; 
+using Random = UnityEngine.Random;
 
 public class CompleteDungeonGenerator : AbstractClass
 {
-    [SerializeField]    protected CorridorSO CorridorParameters;
-    [SerializeField]    protected LevelSO randomWalkParameters;    
+    [SerializeField] protected CorridorSO CorridorParameters;
+    [SerializeField] protected LevelSO randomWalkParameters;
     //these two are the two scriptable objects holding all the parameters for generation of both corridors and levels. They are called instead of the parameter variables themselves.
 
     protected override void RunProceduralGeneration() //only this procedure is public so that information hiding principles are maintained
@@ -18,20 +18,21 @@ public class CompleteDungeonGenerator : AbstractClass
 
     private void MapGeneration()
     {
-        HashSet<Vector2Int> floorPositions = new HashSet<Vector2Int>(); 
-        HashSet<Vector2Int> potentialRoomPositions  = new HashSet<Vector2Int>();
+        HashSet<Vector2Int> floorPositions = new HashSet<Vector2Int>();
+        HashSet<Vector2Int> potentialRoomPositions = new HashSet<Vector2Int>();
 
         CreateCorridors(floorPositions, potentialRoomPositions, CorridorParameters); //a network of corridors is created. no rooms exist at this point in the code, but potential room positions have been identified
-        
+
         HashSet<Vector2Int> roomPositions = CreateRooms(potentialRoomPositions, CorridorParameters); //floor positions are created at a percentage of identified potential room positions AKA corridor junctions
-        
+
         List<Vector2Int> deadEnds = FindAllDeadEnds(floorPositions); //identifies and returns all dead ends that remain in the map
-        
+
         CreateRoomsAtDeadEnds(deadEnds, roomPositions); //generates floor coordinates for rooms at every identified dead end
-       
+
         floorPositions.UnionWith(roomPositions); //generated floor positions are appended to the main floor positions Hashset
 
         tileMapVisualizer.PaintFloorTiles(floorPositions); //calls Visualizer functions to place rule tiles at all generated floor positions
+
         WallGenerator.CreateWalls(floorPositions, tileMapVisualizer); //calls function to identify every wall position in the map created
     }
 
@@ -47,10 +48,10 @@ public class CompleteDungeonGenerator : AbstractClass
         }
     }
 
-    private List<Vector2Int> FindAllDeadEnds(HashSet<Vector2Int> floorPositions) 
+    private List<Vector2Int> FindAllDeadEnds(HashSet<Vector2Int> floorPositions)
     {
         List<Vector2Int> deadEnds = new List<Vector2Int>(); //this Hashset will contain all identified dead ends
-        foreach (var position in floorPositions) 
+        foreach (var position in floorPositions)
         {
             int neighboursCount = 0; //this counter is initialised to be 0 every time this loops, so that every position initially has 0 neighbours
             foreach (var direction in Direction2D.DirectionsList) //the random direction function is called from the Direction2D class.

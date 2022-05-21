@@ -15,7 +15,6 @@ public class DamageByEnemy : MonoBehaviour
                 PlayerHealthManager.playerHealthManager.DealDamage(damage); //deals damage
             }
             Destroy(gameObject); //bullet disappears after collision as long as it is not with another enemy
-            Debug.Log("Player Hit!"); 
         }
     }
 }

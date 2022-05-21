@@ -13,7 +13,9 @@ public class PlayerHealthManager : MonoBehaviour
     public GameObject player;
     public float health;
     public float maxHealth;
+#pragma warning disable CS0649 // Field 'PlayerHealthManager.heal' is never assigned to, and will always have its default value 0
     private float heal;//all variables need to be assigned through the editor
+#pragma warning restore CS0649 // Field 'PlayerHealthManager.heal' is never assigned to, and will always have its default value 0
 
     private void Awake()
     {
@@ -40,7 +42,6 @@ public class PlayerHealthManager : MonoBehaviour
         health -= damage; //damage deducted from health
         CheckDeath(); //method to check if health <= 0 is called
         healthbar.value = CalculateHealth();
-        Debug.Log(health);
     }
 
     private float CalculateHealth()
